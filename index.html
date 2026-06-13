@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shrimant Shrivastava | Aspiring Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink: #1a1a1a;
+  --muted: #6b7280;
+  --faint: #f5f4f0;
+  --line: #e5e3de;
+  --accent: #6a97ec;
+  --accent-light: #dae6f5;
+  --white: #ffffff;
+  --radius: 12px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--white); line-height: 1.6; font-size: 16px; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  padding: 0 6%;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.nav-logo { font-weight: 600; font-size: 17px; color: var(--ink); text-decoration: none; letter-spacing: -0.3px;display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  color: var(--accent); 
+  background: var(--accent);
+  color: var(--white);
+  border: none;}
+.nav-logo:hover {
+  background: var(--accent);
+  color: var(--white);
+  border: 2px dashed var(--accent);
+}
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 14px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+
+/* HERO */
+#hero {
+  min-height: 92vh; padding: 0 10%;
+  display: flex; align-items: center; gap: 6%;
+  border-bottom: 1px solid var(--line);
+}
+.hero-text { flex: 1.4; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+  color: var(--accent); text-transform: uppercase;
+  background: var(--accent-light); padding: 5px 14px;
+  border-radius: 999px; margin-bottom: 1.5rem;
+}
+.hero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  line-height: 1.1; letter-spacing: -1px; color: var(--ink);
+}
+.hero-name em { font-style: italic; color: var(--accent); }
+.hero-tagline { font-size: 1.05rem; color: var(--muted); margin: 1.4rem 0 2.4rem; max-width: 500px; line-height: 1.8; }
+.hero-contacts { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 2rem; }
+.hero-contact-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--muted);
+  background: var(--faint); border: 1px solid var(--line);
+  padding: 5px 12px; border-radius: 999px; text-decoration: none;
+  transition: all 0.15s;
+}
+.hero-contact-chip:hover { color: var(--accent); border-color: var(--accent); }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 24px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; font-family: 'Inter', sans-serif;
+  text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--ink); color: var(--white); }
+.btn-primary:hover { background: #333; transform: translateY(-1px); }
+.btn-outline { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+.btn-outline:hover { border-color: var(--ink); background: var(--faint); }
+
+/* HERO CARD */
+.hero-visual { flex: 0.8; display: flex; justify-content: center; }
+.avatar-card {
+  width: 300px; min-height: 400px;
+  background: var(--faint); border-radius: 24px;
+  border: 1px solid var(--line);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px;
+  padding: 2rem 1.5rem; position: relative; overflow: hidden; text-align: center;
+}
+.avatar-card::before {
+  content: ''; position: absolute; top: -50px; right: -50px;
+  width: 160px; height: 160px; border-radius: 50%;
+  background: var(--accent-light); opacity: 0.8;
+}
+.avatar-initials {
+  width: 120px; height: 120px; border-radius: 50%;
+  overflow: hidden;
+  background: var(--accent); color: var(--white);
+  font-size: 30px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+
+}
+.avatar-card-name { font-weight: 600; font-size: 20px; color: var(--ink); position: relative; z-index: 1; }
+.avatar-card-role { font-size: 15px; color: var(--muted); position: relative; z-index: 1; line-height: 1.5; }
+.status-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: #059669; background: #d1fae5;
+  padding: 5px 12px; border-radius: 999px; position: relative; z-index: 1;
+}
+.status-dot { width: 6px; height: 6px; border-radius: 50%; background: #059669; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* SECTIONS */
+section { padding: 5.5rem 10%; border-bottom: 1px solid var(--line); }
+.section-label {
+  font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  color: var(--ink); letter-spacing: -0.5px;
+  margin-bottom: 2.8rem; line-height: 1.2;
+}
+
+/* ABOUT */
+#about .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.about-text p { color: var(--muted); line-height: 1.85; margin-bottom: 1.2rem; font-size: 1rem; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.stat-box { background: var(--faint); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ink); line-height: 1; }
+.stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+/* EDUCATION */
+.edu-grid { display: grid; gap: 1.25rem; }
+.edu-card { background: var(--faint); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.75rem; }
+.edu-degree { font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 2px; }
+.edu-school { font-size: 14px; color: var(--accent); margin-bottom: 6px; }
+.edu-meta { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.edu-courses { font-size: 13px; color: var(--muted); font-style: italic; line-height: 1.6; }
+.gpa-badge {
+  display: inline-block; font-size: 12px; font-weight: 600;
+  background: var(--accent-light); color: var(--accent);
+  padding: 3px 10px; border-radius: 999px; margin-left: 8px; vertical-align: middle;
+}
+
+/* EXPERIENCE + TRAINING */
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before { content: ''; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 1px; background: var(--line); }
+.timeline-item { position: relative; padding-bottom: 2.8rem; }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: ''; position: absolute; left: -28px; top: 7px;
+  width: 9px; height: 9px; border-radius: 50%;
+  background: var(--accent); border: 2px solid var(--white); outline: 1px solid var(--accent);
+}
+.timeline-role { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.timeline-company { font-size: 14px; color: var(--accent); margin-bottom: 4px; }
+.timeline-date { font-size: 12px; color: var(--muted); margin-bottom: 10px; letter-spacing: 0.02em; }
+.timeline-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.timeline-desc li { margin-bottom: 5px; margin-left: 1rem; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.tag { font-size: 12px; font-weight: 500; background: var(--faint); color: var(--muted); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.2rem; }
+.skill-category { background: var(--faint); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem; }
+.skill-category-title { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+.skill-item { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.skill-name { font-size: 14px; color: var(--ink); }
+.skill-bar-wrap { width: 80px; height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.skill-bar { height: 100%; background: var(--accent); border-radius: 999px; }
+
+/* PROJECTS */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+.project-card {
+  background: var(--white); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.6rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.project-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+.project-icon { width: 42px; height: 42px; background: var(--accent-light); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+.project-title { font-weight: 600; font-size: 1rem; color: var(--ink); }
+.project-desc { font-size: 14px; color: var(--muted); line-height: 1.72; flex: 1; }
+.project-links { display: flex; gap: 8px; margin-top: auto; flex-wrap: wrap; }
+.project-link { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; border: 1px solid var(--accent-light); border-radius: 6px; padding: 5px 12px; transition: all 0.15s; background: var(--accent-light); }
+.project-link:hover { background: #dbeafe; }
+
+/* CERTIFICATIONS */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.cert-card { background: var(--faint); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem 1.4rem; display: flex; align-items: flex-start; gap: 12px; }
+.cert-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+.cert-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.cert-org { font-size: 13px; color: var(--accent); }
+
+/* VOLUNTEER */
+.vol-card { background: var(--faint); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem 1.75rem; }
+.vol-title { font-weight: 600; font-size: 1rem; color: var(--ink); margin-bottom: 4px; }
+.vol-org { font-size: 14px; color: var(--accent); margin-bottom: 8px; }
+.vol-desc { font-size: 14px; color: var(--muted); line-height: 1.75; }
+
+/* CONTACT */
+#contact { background: var(--faint); border-bottom: none; }
+.contact-inner { max-width: 560px; }
+.contact-grid { display: grid; gap: 14px; margin-top: 2.4rem; }
+.contact-item { display: flex; align-items: center; gap: 16px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.25rem; }
+.contact-icon { width: 40px; height: 40px; background: var(--accent-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.contact-label { font-size: 11px; font-weight: 500; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.contact-value { font-size: 14px; font-weight: 500; color: var(--ink); text-decoration: none; }
+.contact-value:hover { color: var(--accent); }
+
+footer { text-align: center; padding: 2rem; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  #hero { flex-direction: column; padding: 4rem 6%; text-align: center; min-height: auto; gap: 2.5rem; }
+  .hero-contacts { justify-content: center; }
+  .hero-cta { justify-content: center; }
+  .hero-visual { width: 100%; }
+  section { padding: 3.5rem 6%; }
+  #about .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .timeline { padding-left: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">SS</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Aspiring Software Engineer</div>
+    <h1 class="hero-name">Shrimant<br /><em>Shrivastava</em></h1>
+    <p class="hero-tagline">
+      MCA student at Wainganga College of Engineering, Nagpur — passionate about full-stack development,
+      data analysis, and building solutions that make a real difference.
+    </p>
+    <div class="hero-contacts">
+      <a href="mailto:shrimantshrivastava24@gmail.com" class="hero-contact-chip">✉️ shrimantshrivastava24@gmail.com</a>
+      <a href="tel:+917083178227" class="hero-contact-chip">📞 +91 70831 78227</a>
+      <a href="C:\Users\HP\Downloads\PORTFOLIO\shrimant_shrivastava_cv.html" class="hero-contact-chip">💼 CV</a>
+      <span class="hero-contact-chip">📍 Nagpur, India</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="avatar-card">
+      <img src="C:\Users\HP\Downloads\PORTFOLIO\Photograh Image.png" alt="Shrimant Shrivastava" class="avatar-initials" style="object-fit: cover; object-position: 0% 0%;
+transform: scale(1.00)" />
+      <div class="avatar-card-name">Shrimant Shrivastava</div>
+      <div class="avatar-card-role">Full Stack Developer<br />Data Analyst · MCA</div>
+      <div class="status-badge"><span class="status-dot"></span>Open to opportunities</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About me</div>
+  <div class="section-title">Who I am</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        Hi, I'm Shrimant — a Master of Computer Applications student based in Nagpur, India.
+        I have a strong foundation in full-stack web development, data analysis, and software
+        engineering principles built through both academic study and hands-on project work.
+      </p>
+      <p>
+        My technical toolkit spans Python, PHP, SQL, React, and data tools like Tableau and
+        Pandas. I enjoy working across the stack — from designing databases to crafting
+        responsive frontends and diving into data insights.
+      </p>
+      <p>
+        Beyond code, I'm passionate about community: I've conducted workshops that impacted
+        over 200 students, and I bring the same energy for leadership and communication to
+        every team I'm part of.
+      </p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Projects shipped</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Students impacted</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">7.11</div>
+        <div class="stat-label">MCA GPA</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Academic background</div>
+  <div class="section-title">Education</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-degree">Master of Computer Applications (MCA) <span class="gpa-badge">GPA: 7.11</span></div>
+      <div class="edu-school">Wainganga College of Engineering and Management</div>
+      <div class="edu-meta">📍 Nagpur, India &nbsp;·&nbsp; July 2024 – June 2026</div>
+      <div class="edu-courses">Courses: Operating Systems, Cloud Computing, Data Warehousing, Software Testing, Databases.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-degree">Bachelor of Commerce in Computer Application (BCCA) <span class="gpa-badge">GPA: 7.70</span></div>
+      <div class="edu-school">GH Raisoni College of Commerce, Science and Management</div>
+      <div class="edu-meta">📍 Nagpur, India &nbsp;·&nbsp; July 2020 – June 2024</div>
+      <div class="edu-courses">Courses: ERP, E-Commerce, Microsoft Office, Multimedia Applications, OOPS, RDBMS.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Work & training</div>
+  <div class="section-title">Experience</div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-role">Full Stack Developer Intern</div>
+      <div class="timeline-company">Rising Web Solutions</div>
+      <div class="timeline-date">Jan 2026 – July 2026 &nbsp;·&nbsp; Remote</div>
+      <ul class="timeline-desc">
+        <li>Built and managed database operations using MySQL — inserting user records and writing optimized SQL queries.</li>
+        <li>Debugged frontend issues using Chrome DevTools, checking console logs and network requests.</li>
+        <li>Collaborated with the team using Git — pushing code, creating pull requests, and managing version control.</li>
+      </ul>
+      <div class="tag-list">
+        <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span><span class="tag">Git</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-role">Data Analyst Training</div>
+      <div class="timeline-company">Unisoft Technologies</div>
+      <div class="timeline-date">Training Program</div>
+      <div class="timeline-desc">
+        Completed focused training on data handling and analysis. Gained hands-on experience in Python, Oracle SQL, MS Excel, and Tableau.
+        Developed skills in data cleaning, visualization, and report creation to support business decision-making.
+      </div>
+      <div class="tag-list">
+        <span class="tag">Python</span><span class="tag">Oracle SQL</span>
+        <span class="tag">Tableau</span><span class="tag">MS Excel</span>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-role">Software Testing Workshop</div>
+      <div class="timeline-company">GHRCCST</div>
+      <div class="timeline-date">During undergraduate studies</div>
+      <div class="timeline-desc">
+        Attended a two-day intensive workshop on Software Testing. Gained understanding of Black Box Testing,
+        White Box Testing, and other testing methodologies. Developed foundational knowledge in QA practices.
+      </div>
+      <div class="tag-list">
+        <span class="tag">Black Box Testing</span><span class="tag">White Box Testing</span><span class="tag">QA</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I work with</div>
+  <div class="section-title">Skills</div>
+  <div class="skills-grid">
+
+    <div class="skill-category">
+      <div class="skill-category-title">Languages</div>
+      <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">PHP</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">SQL</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Bash</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:60%"></div></div></div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-category-title">Data & Frameworks</div>
+      <div class="skill-item"><span class="skill-name">Pandas</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">NumPy</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Matplotlib</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Seaborn</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div></div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-category-title">Tools & Databases</div>
+      <div class="skill-item"><span class="skill-name">MySQL</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">PostgreSQL</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:72%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Tableau</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Git</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div></div>
+    </div>
+
+    <div class="skill-category">
+      <div class="skill-category-title">Platforms & Soft Skills</div>
+      <div class="skill-item"><span class="skill-name">Linux</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:70%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">AWS</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:55%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Public Speaking</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div></div>
+      <div class="skill-item"><span class="skill-name">Leadership</span><div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">What I've built</div>
+  <div class="section-title">Projects</div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-icon">🌐</div>
+      <div class="project-title">Personal Portfolio Website</div>
+      <div class="project-desc">
+        A personal portfolio built with HTML, CSS, and JavaScript to showcase skills, projects,
+        and experience. Focused on responsive design and smooth user experience. Leveraged AI
+        tools to assist with design ideas and development, combining frontend technologies with
+        modern workflows.
+      </div>
+      <div class="tag-list">
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+      </div>
+      <div class="project-links">
+        <a href="https://portfolio-mauve-phi-18.vercel.app/" target="_blank" class="project-link">Live ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-icon">🛒</div>
+      <div class="project-title">Shopping Portal Management System</div>
+      <div class="project-desc">
+        A full-featured web-based e-commerce application in PHP and MySQL with an HTML/CSS/JS/Bootstrap
+        frontend. Includes user registration &amp; authentication, product categorization, search &amp;
+        filtering, cart &amp; wishlist, order management, and an admin panel for managing products,
+        users, and orders.
+      </div>
+      <div class="tag-list">
+        <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Bootstrap</span>
+        <span class="tag">JavaScript</span>
+      </div>
+      <div class="project-links">
+        <a href="#" class="project-link">GitHub →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">Credentials</div>
+  <div class="section-title">Certifications & Honors</div>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🏅</div>
+      <div>
+        <div class="cert-title">DevOps Fundamentals</div>
+        <div class="cert-org">IBM</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🐍</div>
+      <div>
+        <div class="cert-title">Python Programming</div>
+        <div class="cert-org">Udemy</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2.5rem;">
+    <div class="section-label" style="margin-bottom: 1.2rem;">Volunteer Experience</div>
+    <div class="vol-card">
+      <div class="vol-title">Conducted Software Testing Workshop</div>
+      <div class="vol-org">GHRCCST — Nagpur, India</div>
+      <div class="vol-desc">
+        Organized and conducted both online and offline software testing workshops,
+        impacting over <strong>200 students</strong>. Covered testing methodologies, real-world QA
+        practices, and hands-on exercises to help students build job-ready skills.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Say hello</div>
+    <div class="section-title">Contact</div>
+    <p style="color: var(--muted); line-height: 1.8;">
+      I'm actively looking for internships and entry-level software engineering / data analyst roles.
+      Feel free to reach out — I'd love to connect!
+    </p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <a href="mailto:shrimantshrivastava24@gmail.com" class="contact-value">shrimantshrivastava24@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Mobile</div>
+          <a href="tel:+917083178227" class="contact-value">+91 70831 78227</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <span class="contact-value">Nagpur, Maharashtra, India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Designed &amp; built by Shrimant Shrivastava · 2026</footer>
+
+</body>
+</html>
